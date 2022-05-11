@@ -16,9 +16,11 @@ const app = new Vue({
         axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
           .then((response) =>{
             this.ApiEmails.push(response.data.response);
-          })
+            if(this.ApiEmails.length === 10){
+              this.isLoadingOver = true 
+             }
+          });
       }
-      this.isLoadingOver = true
     }
 
   },
@@ -26,10 +28,10 @@ const app = new Vue({
   mounted(){
 
     //delay alla funzione per far vedere che il loading funziona
-    setTimeout(() =>{
-      this.getEmails();
-    }, 2000)
-    
+    // setTimeout(() =>{
+    //   this.getEmails();
+    // }, 2000)
+    this.getEmails()
   },
 
 });
