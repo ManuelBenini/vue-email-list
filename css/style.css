@@ -1,0 +1,47 @@
+.loading{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: red;
+  animation-name: example;
+  animation-duration: 1s;
+  position: relative;
+  transform: rotate(0deg);
+  animation-iteration-count: infinite;
+}
+
+.circle{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid black;
+  top: 0;
+  left: 9px;
+}
+
+.circle.circle2{
+  top: 37px;
+  left: 87px;
+}
+
+.circle.circle3{
+  top: 82px;
+  left: 17px;
+}
+
+span{
+  position: absolute;
+  top: 50px;
+  left: 32px;
+  font-size: 14px;
+}
+
+
+@keyframes example {
+  from {background-color: red;}
+  to {background-color: yellow;}
+
+  from {transform: rotate(0deg);}
+  to {transform: rotate(360deg);}
+}

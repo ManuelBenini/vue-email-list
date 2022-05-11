@@ -24,7 +24,12 @@ const app = new Vue({
   },
 
   mounted(){
-    this.getEmails();
+
+    //delay alla funzione per far vedere che il loading funziona
+    setTimeout(() =>{
+      this.getEmails();
+    }, 2000)
+    
   },
 
 });
