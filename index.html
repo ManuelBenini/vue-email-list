@@ -14,6 +14,14 @@
 </head>
 <body>
   
+  <div id="app">
+
+    <ul v-if="isLoadingOver">
+      <li v-for="email in ApiEmails">{{email}}</li>
+    </ul>
+    <div v-else class="loading">Loading...</div>
+
+  </div>
 
   <script src="js/script.js"></script>
 </body>
