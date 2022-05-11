@@ -5,6 +5,7 @@ const app = new Vue({
   data:{
 
     ApiEmails: [],
+    emailsToGet: 10,
     isLoadingOver: false
 
   },
@@ -12,11 +13,11 @@ const app = new Vue({
   methods:{
 
     getEmails(){
-      for(let i = 0; i < 10; i++){
+      for(let i = 0; i < this.emailsToGet; i++){
         axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
           .then((response) =>{
             this.ApiEmails.push(response.data.response);
-            if(this.ApiEmails.length === 10){
+            if(this.ApiEmails.length === this.emailsToGet){
               this.isLoadingOver = true 
              }
           });
