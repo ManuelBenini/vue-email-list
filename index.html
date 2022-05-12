@@ -16,16 +16,20 @@
   
   <div id="app">
 
-    <ul v-if="isLoadingOver">
-      <li v-for="email in ApiEmails">{{email}}</li>
-    </ul>
-    
-    <div v-else class="loading">
-      <div class="circle"></div>
-      <div class="circle circle2"></div>
-      <div class="circle circle3"></div>
+    <div v-if="!isError">
+      <ul v-if="isLoadingOver">
+        <li v-for="email in ApiEmails">{{email}}</li>
+      </ul>
+      
+      <div v-else class="loading">
+        <div class="circle"></div>
+        <div class="circle circle2"></div>
+        <div class="circle circle3"></div>
+      </div>
+      <span v-show="!isLoadingOver">Loading...</span>
     </div>
-    <span v-show="!isLoadingOver">Loading...</span>
+
+    <div v-else> {{errorMsg}}</div>
   </div>
 
   <script src="js/script.js"></script>

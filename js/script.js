@@ -6,7 +6,9 @@ const app = new Vue({
 
     ApiEmails: [],
     emailsToGet: 10,
-    isLoadingOver: false
+    isLoadingOver: false,
+    isError: false,
+    errorMsg: ''
 
   },
 
@@ -19,8 +21,13 @@ const app = new Vue({
             this.ApiEmails.push(response.data.response);
             if(this.ApiEmails.length === this.emailsToGet){
               this.isLoadingOver = true 
-             }
-          });
+            }
+          })
+          .catch((error) => {
+            console.log('------>', error);
+            this.errorMsg = error;
+            this.isError = true;
+          })
       }
     }
 
